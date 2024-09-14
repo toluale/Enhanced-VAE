@@ -23,6 +23,11 @@ EPOCHS = 20
 BATCH_SIZE = 512
 window_size = 85000
 
+def configure_gpu():
+    """Configure TensorFlow to use specified GPUs."""
+    gpus = tf.config.experimental.list_physical_devices("GPU")
+    #tf.config.experimental.set_visible_devices([gpus[1], gpus[2]], "GPU")
+
 def load_data(filepath):
     """Load data from CSV files."""
     return pd.read_csv(filepath, index_col=0)
